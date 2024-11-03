@@ -9,7 +9,7 @@
             </a>
             <div class="text-base text-gray-500">
 
-                <a href="">{{ $item['author'] }}</a> | maret 2012
+                <a href="">{{ $item['author'] }}</a> | {{ $item ->created_at->diffforhumans()  }}
             </div>
             <p class="my-8 font-light">
                 {{ Str::limit($item['body'], 100) }}

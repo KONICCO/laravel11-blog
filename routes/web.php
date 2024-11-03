@@ -14,12 +14,14 @@ Route::get('/about', action: function () {
 Route::get('/posts', action: function () {
     return view('posts', ['title' => 'Blog Page', 'posts' => Post::all()]);
 });
-Route::get('/posts/{slug}', action: function ($slug) {
+Route::get('/posts/{post:slug}',  function ( Post $post) {
 
-    $item = Post::find($slug);
+    // $item = Post::find($item);
     // dd(vars: $item);
-    return view('post', ['title' => 'Single post', 'item' => $item]);
+    // dd($item);
+    return view('post', ['title' => 'Single post', 'item' => $post]);
 });
+
 Route::get('/contact', action: function () {
     return view('contact', ['title' => 'Contact Page']);
 });
