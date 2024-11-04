@@ -18,26 +18,34 @@ class CategorySeeder extends Seeder
             'name' => 'Web Design',
 
             'slug' => 'web-design',
+            'color' => 'red',
         ]);
         Category::create([
             'name' => 'Graphic Design',
             'slug' => 'graphic-design',
+            'color' => 'green',
+
         ]);
-        
+
         Category::create([
             'name' => 'Digital Marketing',
             'slug' => 'digital-marketing',
+            'color' => 'yellow',
+
         ]);
-        
+
         Category::create([
             'name' => 'SEO',
             'slug' => 'seo',
+            'color' => 'blue',
+
         ]);
-        
+
         Category::create([
             'name' => 'Content Writing',
             'slug' => 'content-writing',
+            'color' => 'purple',
+
         ]);
-        
     }
 }

@@ -14,7 +14,9 @@ Route::get('/about', action: function () {
     return view('about', ['title' => 'Blog Page', 'name' => 'joko']);
 });
 Route::get('/posts', action: function () {
-    return view('posts', ['title' => 'Blog Page', 'posts' => Post::all()]);
+    // eager loading author
+    // $posts = Post::with(['author','category'])->latest()->get();
+    return view('posts', ['title' => 'Blog Page', 'posts' => Post::All()]);
 });
 Route::get('/posts/{post:slug}',  function (Post $post) {
 
@@ -35,9 +37,14 @@ Route::get('/authors/{user:username}',  function (User $user) {
     // }
     // $posts = $user->posts;
     // dd($posts); 
+    //buat lazy eagerloading
+    // $item = $user->posts->load( 'category' , 'author' );
+    // dd($item);
     return view('posts', ['title' => 'Artikel by ' . $user->name, 'posts' => $user->posts]);
 });
 Route::get('/categories/{category:slug}',  function (Category $category) {
+    // $item = $category->posts->load( 'category' , 'author' );
+
     return view('posts', ['title' => 'Artikel Category: ' . $category->name, 'posts' => $category->posts]);
 });
 

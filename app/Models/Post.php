@@ -14,6 +14,7 @@ class Post extends Model
     use HasFactory;
     // protected $table = 'blog_posts'; // replace with your actual table name
     protected $fillable = ['title', 'author', 'slug', 'body'];
+    protected $with = [ 'author', 'category'];
     public function author(): BelongsTo
     {
 
