@@ -20,7 +20,7 @@ Install the "flowbite-typography" NPM package to apply styles and format the art
 
 URL: https://flowbite.com/docs/components/typography/
 -->
-
+    
     <main class="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900 antialiased">
         <div class="flex justify-between px-4 mx-auto max-w-screen-xl ">
             <article
@@ -34,14 +34,14 @@ URL: https://flowbite.com/docs/components/typography/
                                 src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
                                 alt="{{ $item->author->name }}">
                             <div>
-                                <a href="/authors/{{ $item->author->username }}" rel="author"
+                                <a href="/posts?author={{ $item->author->username }}" rel="author"
                                     class="text-xl font-bold text-gray-900 dark:text-white hover:underline">{{ $item->author->name }}</a>
                                 <div class=" items-center text-gray-500">
                                     <span
                                         class="bg-{{ $item->category->color }}-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
 
                                         <a
-                                            href="/categories/{{ $item->category->slug }}">{{ $item->category->name }}</a>
+                                            href="/posts?category={{ $item->category->slug }}">{{ $item->category->name }}</a>
                                     </span>
                                 </div>
                                 <p class="text-base text-gray-500 dark:text-gray-400"><time pubdate

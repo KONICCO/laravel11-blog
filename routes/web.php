@@ -14,9 +14,20 @@ Route::get('/about', action: function () {
     return view('about', ['title' => 'Blog Page', 'name' => 'joko']);
 });
 Route::get('/posts', action: function () {
+
+    // cara filter 1
+    //query builder
+    // $posts = Post::latest();
+    // // Terapkan filter pencarian jika ada
+    // if (request('search')) {
+    //     $posts->where('title', 'like', '%' . request('search') . '%');
+    // }
     // eager loading author
-    // $posts = Post::with(['author','category'])->latest()->get();
-    return view('posts', ['title' => 'Blog Page', 'posts' => Post::All()]);
+
+
+
+
+    return view('posts', ['title' => 'Blog Page', 'posts' => Post::filter(request(['search', 'category', 'author']))->latest()->paginate(2)->withQueryString()]);
 });
 Route::get('/posts/{post:slug}',  function (Post $post) {
 
